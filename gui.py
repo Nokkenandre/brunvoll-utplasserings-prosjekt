@@ -55,4 +55,3 @@ menutitle.place(relx=0.5, rely=0.05, anchor=CENTER)
 
 # Content ends here
 window.mainloop()
-w
