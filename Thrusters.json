@@ -37,7 +37,7 @@
 
             "tunnel-dual-screen": {
                 "properties": {
-                    "amount": 4,
+                    "amount": 0,
                     "power": 1800
                 }
             },
