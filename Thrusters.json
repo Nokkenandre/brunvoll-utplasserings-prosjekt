@@ -1,0 +1,67 @@
+{
+    "thrusters": {
+        "azimuth": {
+            "azimuth": {
+                "properties": {
+                    "amount": 1,
+                    "power": 1000
+                }
+            },
+            "azimuth-propulsion": {
+                "properties": {
+                    "amount":0 ,
+                    "power": 1500
+                }
+            },
+            "azimut-wo-screen": {
+                "properties": {
+                    "amount": 4,
+                    "power": 1000
+                }
+            }
+        },
+        "tunnel": {
+            "tunnel": {
+                "properties": {
+                    "amount": 2,
+                    "power": 900
+
+                }
+            },
+            "tunnel-split-handle": {
+                "properties": {
+                    "amount": 3,
+                    "power": 1800
+                }
+            },
+
+            "tunnel-dual-screen": {
+                "properties": {
+                    "amount": 4,
+                    "power": 1800
+                }
+            },
+            "tunnel-wo-screen": {
+                "properties": {
+                    "amount": 4,
+                    "power": 900
+                }
+            },
+            "tunnel-split-handle-wo-screen": {
+                "properties": {
+                    "amount": 4,
+                    "power": 1800
+                }
+            }
+        },
+        "misc": {
+            "screen": {
+                "properties": {
+                    "amount": 4,
+                    "power": 0,
+                    "inches": 8
+                }
+            }
+        }
+    }
+}
