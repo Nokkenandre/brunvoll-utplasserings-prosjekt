@@ -1,65 +1,81 @@
 {
-    "thrusters": {
-        "azimuth": {
-            "azimuth": {
-                "properties": {
-                    "amount": 1,
-                    "power": 1000
+    "thrusters":
+    {
+        "azimuth":
+        {
+            "azimuth_1":
+            {
+                "id": 1,
+                "position":
+                {
+                    "side": "starboar",
+                    "bow/stern": "bow"
                 }
             },
-            "azimuth-propulsion": {
-                "properties": {
-                    "amount":0 ,
-                    "power": 1500
+            "azimuth_2":
+            {
+                "id": 1,
+                "position":
+                {
+                    "side": "port",
+                    "bow/stern": "bow"
                 }
             },
-            "azimut-wo-screen": {
-                "properties": {
-                    "amount": 4,
-                    "power": 1000
+            "azimuth_3":
+            {
+                "id": 3,
+                "position":
+                {
+                    "side": "center",
+                    "bow/stern": "bow"
+                }
+            },
+            "azimuth_4":
+            {
+                "id": 4,
+                "position":
+                {
+                    "side": "center",
+                    "bow/stern": "stern"
                 }
             }
         },
-        "tunnel": {
-            "tunnel": {
-                "properties": {
-                    "amount": 2,
-                    "power": 900
-
+        "tunnel":
+        {
+            "tunnel_1":
+            {
+                "id": 5,
+                "connected_to": "none",
+                "position":
+                {
+                    "bow/stern": "bow"
                 }
             },
-            "tunnel-split-handle": {
-                "properties": {
-                    "amount": 3,
-                    "power": 1800
+            "azimuth_2":
+            {
+                "id": 6,
+                "connected_to": 7,
+                "position":
+                {
+                    "bow/stern": "bow"
                 }
             },
-
-            "tunnel-dual-screen": {
-                "properties": {
-                    "amount": 0,
-                    "power": 1800
+            "azimuth_3":
+            {
+                "id": 7,
+                "connected_to": 6,
+                "position":
+                {
+                    "bow/stern": "bow"
                 }
             },
-            "tunnel-wo-screen": {
-                "properties": {
-                    "amount": 4,
-                    "power": 900
-                }
-            },
-            "tunnel-split-handle-wo-screen": {
-                "properties": {
-                    "amount": 4,
-                    "power": 1800
-                }
-            }
-        },
-        "misc": {
-            "screen": {
-                "properties": {
-                    "amount": 4,
-                    "power": 0,
-                    "inches": 8
+            "azimuth_4":
+            {
+                "id": 8,
+                "connected_to": "none",
+                "position":
+                {
+                    "bow/stern": "stern"
                 }
             }
         }
