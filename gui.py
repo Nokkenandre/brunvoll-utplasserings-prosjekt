@@ -2,7 +2,8 @@ import tkinter.messagebox
 import tkinter.filedialog
 from tkinter import *
 from jsonfile import readvalue
-from PIL import ImageTk, Image, ImageGrab
+from PIL import ImageTk, Image
+import mss
 
 global clones, screenless
 screenless = 0
@@ -76,13 +77,16 @@ def export(root):
     if file_name:
         root.lift()  # Raise the window to the top of the stacking order
         root.update()  # Refresh the state of the window
-        x = root.winfo_rootx()
-        y = root.winfo_rooty()
+        x = root.winfo_x()
+        y = root.winfo_y()
         width = root.winfo_width()
         height = root.winfo_height()
+        offset = 210
+        with mss.mss() as sct:
+            sct_img = sct.grab({"left": x+offset, "top": y, "width": width-503, "height": height})
 
-        image = ImageGrab.grab((x, y, x + width, y + height))
-        image.save(file_name)
+        mss_img = Image.frombytes("RGB", sct_img.size, sct_img.bgra, "raw", "BGRX")
+        mss_img.save(file_name)
 
 
 def delclone(name, tt, screen):
@@ -138,8 +142,8 @@ menutitle = Label(frame, text="Control panels", font=("", 16))
 menutitle.place(relx=0.5, rely=0.05, anchor=CENTER)
 
 exportimg = ImageTk.PhotoImage(Image.open("assets/export.png").resize((30, 30), Image.LANCZOS))
-exporticon = Label(window, image=exportimg, bd=0, bg="grey",  cursor="hand2")
-exporticon.place(anchor=CENTER, x=1015, y=36)
+exporticon = Label(framel, image=exportimg, bd=0, bg="grey",  cursor="hand2")
+exporticon.place(anchor=CENTER, relx=0.1, rely=0.05)
 exporticon.bind("<Button-1>", lambda e: export(window))
 
 
