@@ -83,7 +83,7 @@ def export(root):
         height = root.winfo_height()
         offset = 210
         with mss.mss() as sct:
-            sct_img = sct.grab({"left": x+offset, "top": y, "width": width-503, "height": height})
+            sct_img = sct.grab({"left": x+offset, "top": y+30, "width": width-503, "height": height-80})
 
         mss_img = Image.frombytes("RGB", sct_img.size, sct_img.bgra, "raw", "BGRX")
         mss_img.save(file_name)
