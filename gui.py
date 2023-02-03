@@ -1,7 +1,8 @@
 import tkinter.messagebox
+import tkinter.filedialog
 from tkinter import *
 from jsonfile import readvalue
-from PIL import ImageTk, Image
+from PIL import ImageTk, Image, ImageGrab
 
 global clones, screenless
 screenless = 0
@@ -69,6 +70,21 @@ def mkclone(img, x, y, xs, ys, offsetx, offsety, tt, screen):
     validate()
 
 
+def export(root):
+    default_file_name = "Bridgedesign.png"
+    file_name = tkinter.filedialog.asksaveasfilename(defaultextension=".png", initialfile=default_file_name)
+    if file_name:
+        root.lift()  # Raise the window to the top of the stacking order
+        root.update()  # Refresh the state of the window
+        x = root.winfo_rootx()
+        y = root.winfo_rooty()
+        width = root.winfo_width()
+        height = root.winfo_height()
+
+        image = ImageGrab.grab((x, y, x + width, y + height))
+        image.save(file_name)
+
+
 def delclone(name, tt, screen):
     global screenless
     name.place_forget()
@@ -110,9 +126,9 @@ framel.grid(row=0, column=3)
 framel.grid_propagate(False)
 
 
-clsimg = ImageTk.PhotoImage(Image.open("assets/cls dark.jpg").resize((20, 25), Image.LANCZOS))
-clsicon = Label(window, image=clsimg, bd=0, cursor="hand2")
-clsicon.place(x=210, y=25)
+clsimg = ImageTk.PhotoImage(Image.open("assets/cls dark.png").resize((20, 25), Image.LANCZOS))
+clsicon = Label(window, image=clsimg, bd=0, cursor="hand2", bg="grey")
+clsicon.place(x=175, y=25)
 clsicon.bind("<Button-1>", lambda e: cls())
 
 menutitle = Label(framel, text="Thruster types", font=("", 16))
@@ -120,6 +136,11 @@ menutitle.place(relx=0.5, rely=0.05, anchor=CENTER)
 
 menutitle = Label(frame, text="Control panels", font=("", 16))
 menutitle.place(relx=0.5, rely=0.05, anchor=CENTER)
+
+exportimg = ImageTk.PhotoImage(Image.open("assets/export.png").resize((30, 30), Image.LANCZOS))
+exporticon = Label(window, image=exportimg, bd=0, bg="grey",  cursor="hand2")
+exporticon.place(anchor=CENTER, x=1015, y=36)
+exporticon.bind("<Button-1>", lambda e: export(window))
 
 
 def switch():
